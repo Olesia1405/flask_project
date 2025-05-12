@@ -1,6 +1,5 @@
-from flask import Flask, request, abort
-
-app = Flask(__name__)
+from app import app
+from flask import abort, request
 
 @app.route('/hello')
 def hello():
@@ -31,8 +30,3 @@ def user(name, age):
     if age <= 0:
         abort(400, description="Age cannot be negative or zero!")
     return f"Hello, {name}. You are {age} years old."
-
-
-
-if __name__ == "__main__":
-    app.run(debug=True)
